@@ -47,7 +47,8 @@ function SectionCard({ title, subtitle, right, children }: any) {
 }
 
 export default function App() {
-  const { user, loading: authLoading } = useAuth();
+  const authLoading = false;
+const user = true;
 
   const [tab, setTab] = useState<'library' | 'decisions'>('library');
   const { variants, loading, error, updateVariant, addVariant, deleteVariant } = useVariants();
@@ -297,7 +298,6 @@ export default function App() {
       });
     }
   };
-
   if (authLoading) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-slate-50">
@@ -305,11 +305,6 @@ export default function App() {
       </div>
     );
   }
-
-  if (!user) {
-    return <AuthPage />;
-  }
-
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-slate-50">
@@ -317,7 +312,6 @@ export default function App() {
       </div>
     );
   }
-
   return (
     <div className="min-h-screen bg-slate-50">
       <div className="mx-auto max-w-6xl space-y-4 p-3 sm:space-y-6 sm:p-6">
