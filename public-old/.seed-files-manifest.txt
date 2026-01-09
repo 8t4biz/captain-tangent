@@ -1,0 +1,43 @@
+Database Seeding Files Manifest
+================================
+Generated: $(date)
+
+Primary Seed Script:
+  seed-test-data.sql (5.3K)
+  - Uses auth.uid() default for user_id
+  - Creates 3 test variants in Review status
+  - Week: 2025-11-04 (Monday)
+  - Recommended for manual use
+
+Alternative Seed Script:
+  seed-test-data-with-user.sql (3.3K)
+  - Explicit user_id (requires replacement)
+  - Same test data as primary script
+  - For automated/scripted seeding
+
+Documentation:
+  SEEDING.md (7.1K)
+  - Complete step-by-step guide
+  - Troubleshooting section
+  - Verification procedures
+  
+  SEED-SUMMARY.md (6.5K)
+  - Implementation overview
+  - Technical decisions
+  - Integration points
+  
+  seed-README.txt (1.1K)
+  - Quick reference
+  - Getting started guide
+
+Test Data Summary:
+  Campaign A: 12% result → Double-Down verdict
+  Campaign B:  8% result → Iterate verdict
+  Campaign C:  3% result → Kill verdict
+
+Quick Commands:
+  View users:    SELECT id, email FROM auth.users;
+  Current week:  SELECT date_trunc('week', CURRENT_DATE)::date;
+  Cleanup:       DELETE FROM variants WHERE owner IN ('Alice', 'Bob', 'Charlie');
+
+All files ready for use!
